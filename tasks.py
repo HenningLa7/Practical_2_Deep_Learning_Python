@@ -14,14 +14,20 @@ print(1+1+1)
 # Instructions:
 # In the notebook, you wrote a function that implements an MLP with 2 hidden layers.
 # The function should accept a vector of weights and a matrix X that stores input feature 
-# ve
-# ctors in its **columns**.
+# vectors in its **columns**.
 # The name of the function should be my_mlp.
 
 # Copy and paste the code for that function here:
 # -----------------------------------------------
-# def my_mlp():
-#    pass  # replace with implementation
+
+def my_mlp(w, X, sigma=np.tanh):
+    W1 = w[0:24].reshape(4, 6, order='F')
+    W2 = w[24:52].reshape(7, 4, order='F')
+    W3 = w[52:59].reshape(1, 7, order='F')
+    a1 = sigma(W1 @ X)  # input -> layer 1
+    a2 = sigma(W2 @ a1) # layer 1 -> layer 2
+    f  = sigma(W3 @ a2) # layer 2 -> output
+    return f 
 
 # -----------------------------------------------
 
@@ -35,8 +41,11 @@ print(1+1+1)
 
 # Copy and paste the code for that function here:
 # -----------------------------------------------
-# def MSE_func():
-#    pass  # replace with implementation
+def MSE_func(w, X, y):
+    f = my_mlp(w, X)
+    MSE = np.mean((f - y) ** 2)
+    return MSE
+
 
 # -----------------------------------------------
 
@@ -52,7 +61,10 @@ print(1+1+1)
 
 # Copy and paste the code for that function here:
 # -----------------------------------------------
-# def dR():
-#     pass  # replace with implementation
+
+def dR(beta, x, y):
+    dbeta_0 = 2 / len(x) * np.sum(beta[0] + beta[1] * x - y)
+    dbeta_1 = 2 / len(x) * np.sum((beta[0] + beta[1] * x - y) * x)
+    return np.array([dbeta_0, dbeta_1])
 
 # -----------------------------------------------
