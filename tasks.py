@@ -3,8 +3,10 @@ import pandas as pd  # data processing, CSV file I/O (e.g. pd.read_csv)
 from scipy.optimize import minimize  # Python version of R's optim() function
 from sklearn import datasets
 
+print(1+1)
+
 # Carry out the exercises in your own copy of the notebook that you can find at
-#    https://www.kaggle.com/code/datasniffer/perceptrons-mlp-s-and-gradient-descent.
+# https://www.kaggle.com/code/datasniffer/perceptrons-mlp-s-and-gradient-descent.
 # Then copy and paste code asked for below in between the dashed lines.
 # Do not import additional packages.
 
@@ -12,13 +14,14 @@ from sklearn import datasets
 # Instructions:
 # In the notebook, you wrote a function that implements an MLP with 2 hidden layers.
 # The function should accept a vector of weights and a matrix X that stores input feature 
-# vectors in its **columns**.
+# ve
+# ctors in its **columns**.
 # The name of the function should be my_mlp.
 
 # Copy and paste the code for that function here:
 # -----------------------------------------------
-def my_mlp():
-    pass  # replace with implementation
+# def my_mlp():
+#    pass  # replace with implementation
 
 # -----------------------------------------------
 
@@ -32,8 +35,8 @@ def my_mlp():
 
 # Copy and paste the code for that function here:
 # -----------------------------------------------
-def MSE_func():
-    pass  # replace with implementation
+# def MSE_func():
+#    pass  # replace with implementation
 
 # -----------------------------------------------
 
@@ -49,7 +52,7 @@ def MSE_func():
 
 # Copy and paste the code for that function here:
 # -----------------------------------------------
-def dR():
-    pass  # replace with implementation
+# def dR():
+#     pass  # replace with implementation
 
 # -----------------------------------------------
