@@ -21,13 +21,13 @@ print(1+1+1)
 # -----------------------------------------------
 
 def my_mlp(w, X, sigma=np.tanh):
-    W1 = w[0:24].reshape(4, 6, order='F')
-    W2 = w[24:52].reshape(7, 4, order='F')
-    W3 = w[52:59].reshape(1, 7, order='F')
-    a1 = sigma(W1 @ X)  # input -> layer 1
-    a2 = sigma(W2 @ a1) # layer 1 -> layer 2
-    f  = sigma(W3 @ a2) # layer 2 -> output
-    return f 
+    W1 = w[0:24].reshape(4, 6)
+    W2 = w[24:52].reshape(7, 4)
+    W3 = w[52:59].reshape(1, 7)
+    a1 = sigma(W1 @ X)
+    a2 = sigma(W2 @ a1)
+    f  = sigma(W3 @ a2)
+    return f
 
 # -----------------------------------------------
 
@@ -42,9 +42,8 @@ def my_mlp(w, X, sigma=np.tanh):
 # Copy and paste the code for that function here:
 # -----------------------------------------------
 def MSE_func(w, X, y):
-    f = my_mlp(w, X)
-    MSE = np.mean((f - y) ** 2)
-    return MSE
+    f = my_mlp(w, X).flatten()
+    return np.sum((f - y) ** 2)
 
 
 # -----------------------------------------------
